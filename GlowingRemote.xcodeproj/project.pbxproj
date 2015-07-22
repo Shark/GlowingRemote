@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC2EE6FA1B603E7900F73ECC /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC071F01B602AB2001A2178 /* StateManager.swift */; };
+		DC6BE8541B5960FE0050AD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */; };
+		DC6BE8561B5960FE0050AD6C /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */; };
+		DC6BE8591B5960FE0050AD6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6BE8571B5960FE0050AD6C /* Main.storyboard */; };
+		DC6BE85B1B5960FE0050AD6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6BE85A1B5960FE0050AD6C /* Assets.xcassets */; };
+		DC6BE85E1B5960FE0050AD6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6BE85C1B5960FE0050AD6C /* LaunchScreen.storyboard */; };
+		DC6BE8631B5960FE0050AD6C /* GlowingRemote WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC6BE8621B5960FE0050AD6C /* GlowingRemote WatchKit App.app */; };
+		DC6BE8691B5960FE0050AD6C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC6BE8671B5960FE0050AD6C /* Interface.storyboard */; };
+		DC6BE86B1B5960FE0050AD6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6BE86A1B5960FE0050AD6C /* Assets.xcassets */; };
+		DC6BE8721B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC6BE8711B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DC6BE8771B5960FE0050AD6C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8761B5960FE0050AD6C /* InterfaceController.swift */; };
+		DC6BE8791B5960FE0050AD6C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8781B5960FE0050AD6C /* ExtensionDelegate.swift */; };
+		DC6BE87B1B5960FE0050AD6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6BE87A1B5960FE0050AD6C /* Assets.xcassets */; };
+		DC6BE88B1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE88A1B5985430050AD6C /* GlowingRoomAPI.swift */; };
+		DC6BE88C1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE88A1B5985430050AD6C /* GlowingRoomAPI.swift */; };
+		DC6BE88E1B598E1A0050AD6C /* StateSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE88D1B598E1A0050AD6C /* StateSwitch.swift */; };
+		DCC071F11B602AB2001A2178 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC071F01B602AB2001A2178 /* StateManager.swift */; };
+		DCD3CCAA1B6031EB003BA70F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD3CCA91B6031EB003BA70F /* SettingsController.swift */; };
+		DCD3CCAC1B603858003BA70F /* DeviceTableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD3CCAB1B603858003BA70F /* DeviceTableRowController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC6BE8641B5960FE0050AD6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6BE8481B5960FE0050AD6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC6BE8611B5960FE0050AD6C;
+			remoteInfo = "GlowingRemote WatchKit App";
+		};
+		DC6BE8731B5960FE0050AD6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6BE8481B5960FE0050AD6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC6BE8701B5960FE0050AD6C;
+			remoteInfo = "GlowingRemote WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DC6BE8821B5960FE0050AD6C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DC6BE8721B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6BE8861B5960FE0050AD6C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DC6BE8631B5960FE0050AD6C /* GlowingRemote WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DC6BE8501B5960FE0050AD6C /* GlowingRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlowingRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
+		DC6BE8581B5960FE0050AD6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DC6BE85A1B5960FE0050AD6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC6BE85D1B5960FE0050AD6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DC6BE85F1B5960FE0050AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6BE8621B5960FE0050AD6C /* GlowingRemote WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GlowingRemote WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6BE8681B5960FE0050AD6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		DC6BE86A1B5960FE0050AD6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC6BE86C1B5960FE0050AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6BE8711B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "GlowingRemote WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6BE8761B5960FE0050AD6C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		DC6BE8781B5960FE0050AD6C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		DC6BE87A1B5960FE0050AD6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC6BE87C1B5960FE0050AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6BE88A1B5985430050AD6C /* GlowingRoomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlowingRoomAPI.swift; sourceTree = "<group>"; };
+		DC6BE88D1B598E1A0050AD6C /* StateSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateSwitch.swift; sourceTree = "<group>"; };
+		DCC071F01B602AB2001A2178 /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
+		DCD3CCA91B6031EB003BA70F /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		DCD3CCAB1B603858003BA70F /* DeviceTableRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableRowController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC6BE84D1B5960FE0050AD6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6BE86E1B5960FE0050AD6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC6BE8471B5960FE0050AD6C = {
+			isa = PBXGroup;
+			children = (
+				DC6BE8521B5960FE0050AD6C /* GlowingRemote */,
+				DC6BE8661B5960FE0050AD6C /* GlowingRemote WatchKit App */,
+				DC6BE8751B5960FE0050AD6C /* GlowingRemote WatchKit Extension */,
+				DC6BE8511B5960FE0050AD6C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC6BE8511B5960FE0050AD6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC6BE8501B5960FE0050AD6C /* GlowingRemote.app */,
+				DC6BE8621B5960FE0050AD6C /* GlowingRemote WatchKit App.app */,
+				DC6BE8711B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC6BE8521B5960FE0050AD6C /* GlowingRemote */ = {
+			isa = PBXGroup;
+			children = (
+				DC6BE8901B5993420050AD6C /* API */,
+				DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */,
+				DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */,
+				DC6BE8571B5960FE0050AD6C /* Main.storyboard */,
+				DC6BE85A1B5960FE0050AD6C /* Assets.xcassets */,
+				DC6BE85C1B5960FE0050AD6C /* LaunchScreen.storyboard */,
+				DC6BE85F1B5960FE0050AD6C /* Info.plist */,
+				DC6BE88D1B598E1A0050AD6C /* StateSwitch.swift */,
+				DCD3CCA91B6031EB003BA70F /* SettingsController.swift */,
+			);
+			path = GlowingRemote;
+			sourceTree = "<group>";
+		};
+		DC6BE8661B5960FE0050AD6C /* GlowingRemote WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				DC6BE8671B5960FE0050AD6C /* Interface.storyboard */,
+				DC6BE86A1B5960FE0050AD6C /* Assets.xcassets */,
+				DC6BE86C1B5960FE0050AD6C /* Info.plist */,
+			);
+			path = "GlowingRemote WatchKit App";
+			sourceTree = "<group>";
+		};
+		DC6BE8751B5960FE0050AD6C /* GlowingRemote WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DC6BE8761B5960FE0050AD6C /* InterfaceController.swift */,
+				DC6BE8781B5960FE0050AD6C /* ExtensionDelegate.swift */,
+				DC6BE87A1B5960FE0050AD6C /* Assets.xcassets */,
+				DC6BE87C1B5960FE0050AD6C /* Info.plist */,
+				DCD3CCAB1B603858003BA70F /* DeviceTableRowController.swift */,
+			);
+			path = "GlowingRemote WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		DC6BE8901B5993420050AD6C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DC6BE88A1B5985430050AD6C /* GlowingRoomAPI.swift */,
+				DCC071F01B602AB2001A2178 /* StateManager.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC6BE84F1B5960FE0050AD6C /* GlowingRemote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6BE8871B5960FE0050AD6C /* Build configuration list for PBXNativeTarget "GlowingRemote" */;
+			buildPhases = (
+				DC6BE84C1B5960FE0050AD6C /* Sources */,
+				DC6BE84D1B5960FE0050AD6C /* Frameworks */,
+				DC6BE84E1B5960FE0050AD6C /* Resources */,
+				DC6BE8861B5960FE0050AD6C /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC6BE8651B5960FE0050AD6C /* PBXTargetDependency */,
+			);
+			name = GlowingRemote;
+			productName = GlowingRemote;
+			productReference = DC6BE8501B5960FE0050AD6C /* GlowingRemote.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC6BE8611B5960FE0050AD6C /* GlowingRemote WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6BE8831B5960FE0050AD6C /* Build configuration list for PBXNativeTarget "GlowingRemote WatchKit App" */;
+			buildPhases = (
+				DC6BE8601B5960FE0050AD6C /* Resources */,
+				DC6BE8821B5960FE0050AD6C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC6BE8741B5960FE0050AD6C /* PBXTargetDependency */,
+			);
+			name = "GlowingRemote WatchKit App";
+			productName = "GlowingRemote WatchKit App";
+			productReference = DC6BE8621B5960FE0050AD6C /* GlowingRemote WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		DC6BE8701B5960FE0050AD6C /* GlowingRemote WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6BE87F1B5960FE0050AD6C /* Build configuration list for PBXNativeTarget "GlowingRemote WatchKit Extension" */;
+			buildPhases = (
+				DC6BE86D1B5960FE0050AD6C /* Sources */,
+				DC6BE86E1B5960FE0050AD6C /* Frameworks */,
+				DC6BE86F1B5960FE0050AD6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GlowingRemote WatchKit Extension";
+			productName = "GlowingRemote WatchKit Extension";
+			productReference = DC6BE8711B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC6BE8481B5960FE0050AD6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Felix Seidel";
+				TargetAttributes = {
+					DC6BE84F1B5960FE0050AD6C = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = XEGENCTDSW;
+					};
+					DC6BE8611B5960FE0050AD6C = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = XEGENCTDSW;
+					};
+					DC6BE8701B5960FE0050AD6C = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = XEGENCTDSW;
+					};
+				};
+			};
+			buildConfigurationList = DC6BE84B1B5960FE0050AD6C /* Build configuration list for PBXProject "GlowingRemote" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC6BE8471B5960FE0050AD6C;
+			productRefGroup = DC6BE8511B5960FE0050AD6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC6BE84F1B5960FE0050AD6C /* GlowingRemote */,
+				DC6BE8611B5960FE0050AD6C /* GlowingRemote WatchKit App */,
+				DC6BE8701B5960FE0050AD6C /* GlowingRemote WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC6BE84E1B5960FE0050AD6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6BE85E1B5960FE0050AD6C /* LaunchScreen.storyboard in Resources */,
+				DC6BE85B1B5960FE0050AD6C /* Assets.xcassets in Resources */,
+				DC6BE8591B5960FE0050AD6C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6BE8601B5960FE0050AD6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6BE86B1B5960FE0050AD6C /* Assets.xcassets in Resources */,
+				DC6BE8691B5960FE0050AD6C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6BE86F1B5960FE0050AD6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6BE87B1B5960FE0050AD6C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC6BE84C1B5960FE0050AD6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCD3CCAA1B6031EB003BA70F /* SettingsController.swift in Sources */,
+				DC6BE8561B5960FE0050AD6C /* DevicesViewController.swift in Sources */,
+				DC6BE8541B5960FE0050AD6C /* AppDelegate.swift in Sources */,
+				DC6BE88B1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */,
+				DCC071F11B602AB2001A2178 /* StateManager.swift in Sources */,
+				DC6BE88E1B598E1A0050AD6C /* StateSwitch.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6BE86D1B5960FE0050AD6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6BE8791B5960FE0050AD6C /* ExtensionDelegate.swift in Sources */,
+				DCD3CCAC1B603858003BA70F /* DeviceTableRowController.swift in Sources */,
+				DC6BE8771B5960FE0050AD6C /* InterfaceController.swift in Sources */,
+				DC2EE6FA1B603E7900F73ECC /* StateManager.swift in Sources */,
+				DC6BE88C1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC6BE8651B5960FE0050AD6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC6BE8611B5960FE0050AD6C /* GlowingRemote WatchKit App */;
+			targetProxy = DC6BE8641B5960FE0050AD6C /* PBXContainerItemProxy */;
+		};
+		DC6BE8741B5960FE0050AD6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC6BE8701B5960FE0050AD6C /* GlowingRemote WatchKit Extension */;
+			targetProxy = DC6BE8731B5960FE0050AD6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC6BE8571B5960FE0050AD6C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC6BE8581B5960FE0050AD6C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DC6BE85C1B5960FE0050AD6C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC6BE85D1B5960FE0050AD6C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DC6BE8671B5960FE0050AD6C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC6BE8681B5960FE0050AD6C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC6BE87D1B5960FE0050AD6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC6BE87E1B5960FE0050AD6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC6BE8801B5960FE0050AD6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "GlowingRemote WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shark.GlowingRemote.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		DC6BE8811B5960FE0050AD6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "GlowingRemote WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shark.GlowingRemote.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		DC6BE8841B5960FE0050AD6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = GlowingRemote_WatchKit_Extension;
+				INFOPLIST_FILE = "GlowingRemote WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = shark.GlowingRemote.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		DC6BE8851B5960FE0050AD6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = GlowingRemote_WatchKit_Extension;
+				INFOPLIST_FILE = "GlowingRemote WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = shark.GlowingRemote.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		DC6BE8881B5960FE0050AD6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = GlowingRemote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shark.GlowingRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		DC6BE8891B5960FE0050AD6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = GlowingRemote/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shark.GlowingRemote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC6BE84B1B5960FE0050AD6C /* Build configuration list for PBXProject "GlowingRemote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6BE87D1B5960FE0050AD6C /* Debug */,
+				DC6BE87E1B5960FE0050AD6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6BE87F1B5960FE0050AD6C /* Build configuration list for PBXNativeTarget "GlowingRemote WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6BE8801B5960FE0050AD6C /* Debug */,
+				DC6BE8811B5960FE0050AD6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6BE8831B5960FE0050AD6C /* Build configuration list for PBXNativeTarget "GlowingRemote WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6BE8841B5960FE0050AD6C /* Debug */,
+				DC6BE8851B5960FE0050AD6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6BE8871B5960FE0050AD6C /* Build configuration list for PBXNativeTarget "GlowingRemote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6BE8881B5960FE0050AD6C /* Debug */,
+				DC6BE8891B5960FE0050AD6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC6BE8481B5960FE0050AD6C /* Project object */;
+}

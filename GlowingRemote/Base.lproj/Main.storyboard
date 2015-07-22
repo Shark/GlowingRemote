@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3c2-h8-8yz">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="VHH-hm-dnH">
+            <objects>
+                <navigationController id="3c2-h8-8yz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2dA-hd-zxX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TCt-qb-1AO" kind="relationship" relationship="rootViewController" id="hzp-cd-Q3j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zyN-aj-1Ib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="12" y="468"/>
+        </scene>
+        <!--Geräte-->
+        <scene sceneID="nvh-0n-c9U">
+            <objects>
+                <tableViewController id="TCt-qb-1AO" customClass="DevicesViewController" customModule="GlowingRemote" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WtD-Gs-7RT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="state_cell" id="FsX-gK-LxP">
+                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FsX-gK-LxP" id="X5c-z2-Rp8">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCz-KH-HPm">
+                                            <rect key="frame" x="10" y="11" width="45" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="JMv-jM-ATw"/>
+                                                <constraint firstAttribute="height" constant="21" id="zca-Ls-4At"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="JMv-jM-ATw"/>
+                                                    <exclude reference="zca-Ls-4At"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uv7-zl-la8" customClass="StateSwitch" customModule="GlowingRemote" customModuleProvider="target">
+                                            <rect key="frame" x="538" y="6" width="51" height="31"/>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="leading" secondItem="cCz-KH-HPm" secondAttribute="trailing" constant="6" id="31Z-xx-io8"/>
+                                        <constraint firstItem="cCz-KH-HPm" firstAttribute="leading" secondItem="X5c-z2-Rp8" secondAttribute="leading" constant="10" id="3E3-E1-66T"/>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="leading" secondItem="cCz-KH-HPm" secondAttribute="trailing" constant="6" id="Ajr-n9-fTq"/>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="centerY" secondItem="cCz-KH-HPm" secondAttribute="centerY" id="Fmb-wW-mXJ"/>
+                                        <constraint firstItem="cCz-KH-HPm" firstAttribute="centerY" secondItem="X5c-z2-Rp8" secondAttribute="centerY" id="HDn-km-qcr"/>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="baseline" secondItem="cCz-KH-HPm" secondAttribute="baseline" id="KV9-Y4-ktN"/>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="centerX" secondItem="cCz-KH-HPm" secondAttribute="centerX" id="Qjb-Qs-dFJ"/>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="centerY" secondItem="cCz-KH-HPm" secondAttribute="centerY" id="aU0-vj-ZCp"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="uv7-zl-la8" secondAttribute="trailing" constant="5" id="clp-zQ-mkA"/>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="centerY" secondItem="X5c-z2-Rp8" secondAttribute="centerY" id="odk-Gu-g1L"/>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="X5c-z2-Rp8" secondAttribute="trailingMargin" constant="10" id="rkR-Fa-957"/>
+                                        <constraint firstItem="uv7-zl-la8" firstAttribute="centerY" secondItem="cCz-KH-HPm" secondAttribute="centerY" id="zdA-Qc-RJm"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="31Z-xx-io8"/>
+                                            <exclude reference="Ajr-n9-fTq"/>
+                                            <exclude reference="Fmb-wW-mXJ"/>
+                                            <exclude reference="KV9-Y4-ktN"/>
+                                            <exclude reference="Qjb-Qs-dFJ"/>
+                                            <exclude reference="odk-Gu-g1L"/>
+                                            <exclude reference="rkR-Fa-957"/>
+                                            <exclude reference="zdA-Qc-RJm"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TCt-qb-1AO" id="KWS-sQ-c3I"/>
+                            <outlet property="delegate" destination="TCt-qb-1AO" id="elC-gf-aeq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Geräte" id="wY7-Is-Adc">
+                        <barButtonItem key="rightBarButtonItem" title="Einstellungen" id="3b5-Qa-njR">
+                            <connections>
+                                <segue destination="5Yg-aA-yiI" kind="presentation" id="UXt-6S-osc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLO-LG-rVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="468"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Fa-3q-KWR">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NjW-DG-11q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="5Yg-aA-yiI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uh4-zH-GPO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ih1-33-p4C" kind="relationship" relationship="rootViewController" id="pah-ka-3PU"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="781" y="1343"/>
+        </scene>
+        <!--Einstellungen-->
+        <scene sceneID="iNZ-V3-yz9">
+            <objects>
+                <viewController id="ih1-33-p4C" customClass="SettingsController" customModule="GlowingRemote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="esy-Hf-VkF"/>
+                        <viewControllerLayoutGuide type="bottom" id="EbA-71-NtL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qCN-YC-TQX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Einstellungen" id="JG6-qV-zb8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="MqO-0b-hqq">
+                            <connections>
+                                <action selector="close:" destination="ih1-33-p4C" id="QyH-2E-kZr"/>
+                                <segue destination="gNf-XC-Jc2" kind="unwind" unwindAction="unwindToDevices:" id="3sZ-b2-f4u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDG-pn-e51" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gNf-XC-Jc2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1504" y="1338"/>
+        </scene>
+    </scenes>
+</document>

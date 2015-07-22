@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8121.20" systemVersion="14E46" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8066.14"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="GlowingRemote_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="wIL-Lf-EiX">
+                            <items>
+                                <tableRow identifier="Device" id="mnh-H1-FXx" customClass="DeviceTableRowController" customModule="GlowingRemote_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="T81-ah-8Xy">
+                                        <items>
+                                            <label width="0.65000000000000002" alignment="left" verticalAlignment="center" text="Label" numberOfLines="2" id="f1u-yx-8e7">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                            <switch width="50" alignment="left" verticalAlignment="center" id="ZVv-cw-qt4">
+                                                <connections>
+                                                    <action selector="switchAction:" destination="mnh-H1-FXx" id="AO7-6E-Ujl"/>
+                                                </connections>
+                                            </switch>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="label" destination="f1u-yx-8e7" id="ZUP-Oz-WLu"/>
+                                        <outlet property="switchView" destination="ZVv-cw-qt4" id="37H-8l-65d"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <menu key="menu" id="Gc6-dT-ejf">
+                        <items>
+                            <menuItem title="Alle aus" icon="block" id="AXG-wk-4pP"/>
+                            <menuItem title="Alle ein" icon="accept" id="o11-aY-Igb"/>
+                            <menuItem title="Aktualisieren" icon="more" id="BZ6-Zq-Bmn">
+                                <connections>
+                                    <action selector="refreshDevices" destination="AgC-eL-Hgc" id="lVb-ym-X3v"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="devicesTable" destination="wIL-Lf-EiX" id="PC0-vL-MSt"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="471" y="252"/>
+        </scene>
+    </scenes>
+</document>
