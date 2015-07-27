@@ -10,6 +10,7 @@ import WatchKit
 
 class DeviceTableRowController: NSObject {
     var device: NSDictionary?
+    var stateManager: StateManager?
     
     @IBOutlet var label: WKInterfaceLabel!
     @IBOutlet var switchView: WKInterfaceSwitch!
@@ -17,9 +18,9 @@ class DeviceTableRowController: NSObject {
     @IBAction func switchAction(value: Bool) {
         if(device != nil) {
             if(value) {
-                GlowingRoomAPI.switchOn(device!, completionHandler: { (_, _2) -> Void in })
+                stateManager!.switchOn(device!, completionHandler: { (_, _2) -> Void in })
             } else {
-                GlowingRoomAPI.switchOff(device!, completionHandler: { (_, _2) -> Void in })
+                stateManager!.switchOff(device!, completionHandler: { (_, _2) -> Void in })
             }
         }
     }

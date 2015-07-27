@@ -25,7 +25,7 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        // Configure interface objects here.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshDevices", name: "ApiBaseUrlChanged", object: nil)
     }
 
     override func willActivate() {
@@ -44,9 +44,12 @@ class InterfaceController: WKInterfaceController {
         if(devices != nil) {
             devicesTable.setNumberOfRows(devices!.count, withRowType: "Device")
             
+            let stateManager = (WKExtension.sharedExtension().delegate as! ExtensionDelegate).stateManager
+            
             for (index, device) in devices!.enumerate() {
                 let row = devicesTable.rowControllerAtIndex(index) as! DeviceTableRowController
                 row.device = device as? NSDictionary
+                row.stateManager = stateManager
                 
                 row.label.setText(device["name"] as? String)
                 let state = device["state"] as! NSDictionary

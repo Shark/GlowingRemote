@@ -10,18 +10,19 @@ import UIKit
 
 class DevicesViewController: UITableViewController {
     var devices : NSArray?
+    var stateManager : StateManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let stateManager = StateManager()
-        stateManager.devices { (devices) -> Void in
-            self.devices = devices
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                self.tableView.reloadData()
-            }
-        }
+        let delegate = (UIApplication.sharedApplication().delegate) as! AppDelegate
+        stateManager = delegate.stateManager
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateDevices", name: "ApiBaseUrlChanged", object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        updateDevices()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -87,9 +88,9 @@ class DevicesViewController: UITableViewController {
         let device = sender.valueForKey("device") as! NSDictionary
         
         if sender.on {
-            GlowingRoomAPI.switchOn(device, completionHandler: { (_, _2) -> Void in })
+            stateManager!.switchOn(device, completionHandler: { (_, _2) -> Void in })
         } else {
-            GlowingRoomAPI.switchOff(device, completionHandler: { (_, _2) -> Void in })
+            stateManager!.switchOff(device, completionHandler: { (_, _2) -> Void in })
         }
     }
     
@@ -110,6 +111,16 @@ class DevicesViewController: UITableViewController {
         }
         
         return dict
+    }
+    
+    func updateDevices() {
+        stateManager!.devices { (devices) -> Void in
+            self.devices = devices
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     @IBAction func unwindToDevices(segue: UIStoryboardSegue) {

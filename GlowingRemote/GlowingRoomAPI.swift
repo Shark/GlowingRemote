@@ -9,9 +9,7 @@
 import Foundation
 
 class GlowingRoomAPI {
-    static let baseUrl: NSURL = NSURL(string: "http://nas.local:8888/glowingroom/api")!
-    
-    static func getAllDevices(completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
+    static func getAllDevices(baseUrl: NSURL, completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
         let allDevicesUrl = baseUrl.URLByAppendingPathComponent("/devices")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(allDevicesUrl, completionHandler: {data, response, error -> Void in
@@ -29,7 +27,7 @@ class GlowingRoomAPI {
         task.resume()
     }
     
-    static func switchOn(device : NSDictionary, completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
+    static func switchOn(baseUrl: NSURL, device : NSDictionary, completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
         let id = device["id"] as! Int
         let type = device["type"] as! String
         var switchOnUrl : NSURL?
@@ -60,7 +58,7 @@ class GlowingRoomAPI {
         }
     }
     
-    static func switchOff(device : NSDictionary, completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
+    static func switchOff(baseUrl: NSURL, device : NSDictionary, completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
         let id = device["id"] as! Int
         let type = device["type"] as! String
         var switchOnUrl : NSURL?

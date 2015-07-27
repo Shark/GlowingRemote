@@ -7,11 +7,24 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
 
+    let stateManager = StateManager()
+    
     func applicationDidFinishLaunching() {
-        // Perform any final initialization of your application.
+        if(WCSession.isSupported()) {
+            let session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+        }
+    }
+    
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        if let newApiBaseUrl = applicationContext["apiBaseUrl"] as? String {
+            stateManager.apiBaseUrl = NSURL(string: newApiBaseUrl)
+        }
     }
 
     func applicationDidBecomeActive() {
