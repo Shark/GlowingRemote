@@ -12,7 +12,7 @@ class DeviceTableRowController: NSObject {
     var device: NSDictionary?
     var stateManager: StateManager?
     
-    @IBOutlet var label: WKInterfaceLabel!
+    @IBOutlet var labelView: WKInterfaceLabel!
     @IBOutlet var switchView: WKInterfaceSwitch!
     
     @IBAction func switchAction(value: Bool) {

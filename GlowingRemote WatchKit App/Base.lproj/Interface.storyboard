@@ -15,18 +15,20 @@
                                 <tableRow identifier="Device" id="mnh-H1-FXx" customClass="DeviceTableRowController" customModule="GlowingRemote_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="T81-ah-8Xy">
                                         <items>
-                                            <label width="0.65000000000000002" alignment="left" verticalAlignment="center" text="Label" numberOfLines="2" id="f1u-yx-8e7">
+                                            <label width="0.59999999999999998" widthAdjustment="12" alignment="left" verticalAlignment="center" text="Label" numberOfLines="2" id="YsR-W7-gvU">
                                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                             </label>
-                                            <switch width="50" alignment="left" verticalAlignment="center" id="ZVv-cw-qt4">
+                                            <switch width="48" alignment="left" verticalAlignment="center" id="ZVv-cw-qt4">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                 <connections>
                                                     <action selector="switchAction:" destination="mnh-H1-FXx" id="AO7-6E-Ujl"/>
                                                 </connections>
                                             </switch>
                                         </items>
+                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
                                     <connections>
-                                        <outlet property="label" destination="f1u-yx-8e7" id="ZUP-Oz-WLu"/>
+                                        <outlet property="labelView" destination="YsR-W7-gvU" id="5H3-hg-Hhn"/>
                                         <outlet property="switchView" destination="ZVv-cw-qt4" id="37H-8l-65d"/>
                                     </connections>
                                 </tableRow>
@@ -50,6 +52,76 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="471" y="252"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="4M2-CM-hgO">
+            <objects>
+                <controller identifier="DeviceDetail" title="Details" hidesWhenLoading="NO" id="Mae-0k-Mra" customClass="DeviceDetailController" customModule="GlowingRemote_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="DWr-q2-R7R">
+                            <items>
+                                <label alignment="center" text="Label" numberOfLines="2" id="WYM-4g-5OD">
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                </label>
+                                <slider width="1" alignment="left" continuous="YES" value="50" maximum="100" steps="10" id="wy3-bw-u3H"/>
+                                <button width="1" alignment="left" title="Farbe einstellen…" id="Pd7-eB-XEj">
+                                    <connections>
+                                        <action selector="colorButtonClicked" destination="Mae-0k-Mra" id="Fcp-rJ-06x"/>
+                                        <segue destination="j68-lT-AO2" kind="push" id="MEb-tB-CSA"/>
+                                    </connections>
+                                </button>
+                                <button width="1" alignment="left" title="Sleep Timer erstellen…" id="g56-if-YEd">
+                                    <connections>
+                                        <action selector="sleepTimerButtonClicked" destination="Mae-0k-Mra" id="g66-ha-taG"/>
+                                        <segue destination="Wjc-A5-ccv" kind="push" id="Sqx-Ab-RZ0"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="brightnessSlider" destination="wy3-bw-u3H" id="7OS-LO-qe2"/>
+                        <outlet property="colorButton" destination="Pd7-eB-XEj" id="gFU-Yu-JJL"/>
+                        <outlet property="nameLabel" destination="WYM-4g-5OD" id="8BL-YT-vFz"/>
+                        <outlet property="sleepTimerButton" destination="g56-if-YEd" id="awE-fo-GKW"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="641" y="252"/>
+        </scene>
+        <!--Farbe-->
+        <scene sceneID="tU1-Lc-b9F">
+            <objects>
+                <controller title="Farbe" hidesWhenLoading="NO" id="j68-lT-AO2">
+                    <items>
+                        <picker width="1" height="100" alignment="left" id="OLj-go-bKG"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="917" y="212"/>
+        </scene>
+        <!--Sleep Timer-->
+        <scene sceneID="GG3-DW-neH">
+            <objects>
+                <controller title="Sleep Timer" hidesWhenLoading="NO" id="Wjc-A5-ccv" customClass="DeviceSleepTimerController" customModule="GlowingRemote_WatchKit_Extension">
+                    <items>
+                        <picker width="1" height="100" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="f7J-Hn-Ud5">
+                            <connections>
+                                <action selector="pickerSelectedItemChanged:" destination="Wjc-A5-ccv" id="zFS-DJ-wWM"/>
+                            </connections>
+                        </picker>
+                        <button width="1" alignment="left" title="Timer erstellen" id="6JW-cL-OTr">
+                            <connections>
+                                <action selector="createTimerButtonTapped" destination="Wjc-A5-ccv" id="XnA-Fo-UXt"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="picker" destination="f7J-Hn-Ud5" id="3qa-pN-qsa"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="839" y="568"/>
         </scene>
     </scenes>
 </document>

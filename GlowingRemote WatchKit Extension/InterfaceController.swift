@@ -38,6 +38,11 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
+    override func table(_ table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+        let device = devices![rowIndex]
+        pushControllerWithName("DeviceDetail", context: device)
+    }
+    
     private func loadTableData() {
         devicesTable.setNumberOfRows(0, withRowType: "Device")
         
@@ -51,7 +56,7 @@ class InterfaceController: WKInterfaceController {
                 row.device = device as? NSDictionary
                 row.stateManager = stateManager
                 
-                row.label.setText(device["name"] as? String)
+                row.labelView.setText(device["name"] as? String)
                 let state = device["state"] as! NSDictionary
                 if let power = state["power"] as? Bool {
                     row.switchView.setOn(power)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D92CFFA91B67C1EB0039D3D3 /* DeviceDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92CFFA81B67C1EB0039D3D3 /* DeviceDetailController.swift */; };
+		D92CFFAB1B67C8260039D3D3 /* DeviceSleepTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92CFFAA1B67C8260039D3D3 /* DeviceSleepTimerController.swift */; };
 		DC2EE6FA1B603E7900F73ECC /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC071F01B602AB2001A2178 /* StateManager.swift */; };
 		DC6BE8541B5960FE0050AD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */; };
 		DC6BE8561B5960FE0050AD6C /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */; };
@@ -71,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D92CFFA81B67C1EB0039D3D3 /* DeviceDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailController.swift; sourceTree = "<group>"; };
+		D92CFFAA1B67C8260039D3D3 /* DeviceSleepTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSleepTimerController.swift; sourceTree = "<group>"; };
 		DC6BE8501B5960FE0050AD6C /* GlowingRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlowingRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				DC6BE87A1B5960FE0050AD6C /* Assets.xcassets */,
 				DC6BE87C1B5960FE0050AD6C /* Info.plist */,
 				DCD3CCAB1B603858003BA70F /* DeviceTableRowController.swift */,
+				D92CFFA81B67C1EB0039D3D3 /* DeviceDetailController.swift */,
+				D92CFFAA1B67C8260039D3D3 /* DeviceSleepTimerController.swift */,
 			);
 			path = "GlowingRemote WatchKit Extension";
 			sourceTree = "<group>";
@@ -330,7 +336,9 @@
 				DCD3CCAC1B603858003BA70F /* DeviceTableRowController.swift in Sources */,
 				DC6BE8771B5960FE0050AD6C /* InterfaceController.swift in Sources */,
 				DC2EE6FA1B603E7900F73ECC /* StateManager.swift in Sources */,
+				D92CFFA91B67C1EB0039D3D3 /* DeviceDetailController.swift in Sources */,
 				DC6BE88C1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */,
+				D92CFFAB1B67C8260039D3D3 /* DeviceSleepTimerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
