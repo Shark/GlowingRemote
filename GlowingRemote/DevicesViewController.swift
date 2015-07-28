@@ -117,6 +117,10 @@ class DevicesViewController: UITableViewController {
         stateManager!.devices { (devices) -> Void in
             self.devices = devices
             
+            if(self.devices == nil) {
+                self.showDevicesNotAvailableAlert()
+            }
+            
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView.reloadData()
             }
@@ -124,6 +128,14 @@ class DevicesViewController: UITableViewController {
     }
     
     @IBAction func unwindToDevices(segue: UIStoryboardSegue) {
+    }
+    
+    private func showDevicesNotAvailableAlert() {
+        dispatch_async(dispatch_get_main_queue()) {
+            let baseUrl = self.stateManager?.apiBaseUrl?.absoluteString
+            let alertView = UIAlertView(title: "Fehler", message: "Konnte Geräte nicht von \(baseUrl) laden.", delegate: self, cancelButtonTitle: "Ok")
+            alertView.show()
+        }
     }
 }
 

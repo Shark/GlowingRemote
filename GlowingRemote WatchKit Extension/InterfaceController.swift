@@ -62,6 +62,8 @@ class InterfaceController: WKInterfaceController {
                     row.switchView.setOn(power)
                 }
             }
+        } else {
+            showDevicesNotAvailableAlert()
         }
     }
 
@@ -74,5 +76,12 @@ class InterfaceController: WKInterfaceController {
                 self.loadTableData()
             }
         }
+    }
+    
+    private func showDevicesNotAvailableAlert() {
+        let defaultAction = WKAlertAction(title: "Ok", style: WKAlertActionStyle.Default, handler: { () -> Void in })
+        let style = WKAlertControllerStyle.ActionSheet
+        let stateManager = (WKExtension.sharedExtension().delegate as! ExtensionDelegate).stateManager
+        presentAlertControllerWithTitle("Fehler", message: "Konnte Geräte von URL \(stateManager.apiBaseUrl?.absoluteString) nicht laden.", preferredStyle: style, actions: [defaultAction])
     }
 }
