@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 class DevicesViewController: UITableViewController {
-    var devices : NSArray?
+    var devices : Array<Device>?
     var stateManager : StateManager?
     
     override func viewDidLoad() {
@@ -19,10 +20,22 @@ class DevicesViewController: UITableViewController {
         stateManager = delegate.stateManager
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateDevices", name: "ApiBaseUrlChanged", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateStateLocal", name: "DevicesChanged", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
-        updateDevices()
+        self.devices = stateManager?.devices
+        
+        if(self.devices == nil || self.devices?.count == 0) {
+            updateDevices()
+        } else {
+            updateState()
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ApiBaseUrlChanged", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "DevicesChanged", object: nil)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -64,19 +77,15 @@ class DevicesViewController: UITableViewController {
         let stateSwitch : UISwitch = cell.viewWithTag(2) as! UISwitch
     
         let devPerSect = devicesPerSection(devices)
-        var currentDevice : NSDictionary
+        var currentDevice : Device
         if(indexPath.section == 0) {
-            currentDevice = devPerSect["RGBStrip"]![indexPath.row] as! NSDictionary
+            currentDevice = devPerSect["RGBStrip"]![indexPath.row] as! Device
         } else {
-            currentDevice = devPerSect["RCSwitch"]![indexPath.row] as! NSDictionary
+            currentDevice = devPerSect["RCSwitch"]![indexPath.row] as! Device
         }
 
-        nameLabel.text = currentDevice["name"] as? String
-        
-        let state = currentDevice["state"] as! NSDictionary
-        if (state["power"] as! Bool) == false {
-            stateSwitch.setOn(false, animated: false)
-        }
+        nameLabel.text = currentDevice.name
+        stateSwitch.setOn(currentDevice.state.power, animated: true)
         
         stateSwitch.setValue(currentDevice, forKey: "device")
         stateSwitch.addTarget(self, action: "stateSwitchValueDidChange:", forControlEvents: .ValueChanged);
@@ -85,12 +94,24 @@ class DevicesViewController: UITableViewController {
     }
     
     func stateSwitchValueDidChange(sender: UISwitch!) {
-        let device = sender.valueForKey("device") as! NSDictionary
+        let device = sender.valueForKey("device") as! Device
         
         if sender.on {
-            stateManager!.switchOn(device, completionHandler: { (_, _2) -> Void in })
+            stateManager!.switchOn(device, completionHandler: {(Bool) -> Void in
+                if(WCSession.defaultSession().reachable) {
+                    WCSession.defaultSession().sendMessage(["id": device.id, "power": device.state.power], replyHandler: nil, errorHandler: {(error) -> Void in
+                        print(error)
+                    })
+                }
+            })
         } else {
-            stateManager!.switchOff(device, completionHandler: { (_, _2) -> Void in })
+            stateManager!.switchOff(device, completionHandler: {(Bool) -> Void in
+                if(WCSession.defaultSession().reachable) {
+                    WCSession.defaultSession().sendMessage(["id": device.id, "power": device.state.power], replyHandler: nil, errorHandler: {(error) -> Void in
+                        print(error)
+                    })
+                }
+            })
         }
     }
     
@@ -101,7 +122,7 @@ class DevicesViewController: UITableViewController {
         
         if devices != nil {
             for device in devices! {
-                let type = device["type"] as? String
+                let type = (device as! Device).type
                 if(type == "RCSwitch") {
                     dict["RCSwitch"]!.addObject(device)
                 } else if(type == "RGBStrip") {
@@ -114,16 +135,48 @@ class DevicesViewController: UITableViewController {
     }
     
     func updateDevices() {
-        stateManager!.devices { (devices) -> Void in
-            self.devices = devices
-            
-            if(self.devices == nil) {
-                self.showDevicesNotAvailableAlert()
+        stateManager!.updateDevices({ (success) -> Void in
+            if(success) {
+                self.devices = self.stateManager!.devices
+                self.updateDeviceContext(self.devices!)
             }
             
             dispatch_async(dispatch_get_main_queue()) {
-                self.tableView.reloadData()
+                if(success) {
+                    self.tableView.reloadData()
+                } else {
+                    self.showDevicesNotAvailableAlert()
+                }
             }
+        })
+    }
+    
+    func updateState() {
+        stateManager!.updateState({ (success) -> Void in
+            if(success) {
+                self.devices = self.stateManager!.devices
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                    self.updateDeviceContext(self.devices!)
+                }
+            }
+        })
+    }
+    
+    func updateStateLocal() {
+        self.devices = self.stateManager!.devices
+        dispatch_async(dispatch_get_main_queue()) {
+            self.tableView.reloadData()
+            self.updateDeviceContext(self.devices!)
+        }
+    }
+    
+    func updateDeviceContext(devices: Array<Device>) {
+        let context = ["devices": devices]
+        do {
+            try WCSession.defaultSession().updateApplicationContext(context)
+        } catch {
+            print(error)
         }
     }
     

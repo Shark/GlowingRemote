@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D92CFFA91B67C1EB0039D3D3 /* DeviceDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92CFFA81B67C1EB0039D3D3 /* DeviceDetailController.swift */; };
 		D92CFFAB1B67C8260039D3D3 /* DeviceSleepTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92CFFAA1B67C8260039D3D3 /* DeviceSleepTimerController.swift */; };
+		D979994C1B680FB100EEFF36 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979994B1B680FB100EEFF36 /* Device.swift */; };
+		D979994D1B680FB100EEFF36 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979994B1B680FB100EEFF36 /* Device.swift */; };
+		D979994F1B680FF900EEFF36 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979994E1B680FF900EEFF36 /* State.swift */; };
+		D97999501B680FF900EEFF36 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979994E1B680FF900EEFF36 /* State.swift */; };
 		DC2EE6FA1B603E7900F73ECC /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC071F01B602AB2001A2178 /* StateManager.swift */; };
 		DC6BE8541B5960FE0050AD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */; };
 		DC6BE8561B5960FE0050AD6C /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */; };
@@ -21,7 +25,6 @@
 		DC6BE8721B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC6BE8711B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DC6BE8771B5960FE0050AD6C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8761B5960FE0050AD6C /* InterfaceController.swift */; };
 		DC6BE8791B5960FE0050AD6C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8781B5960FE0050AD6C /* ExtensionDelegate.swift */; };
-		DC6BE87B1B5960FE0050AD6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6BE87A1B5960FE0050AD6C /* Assets.xcassets */; };
 		DC6BE88B1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE88A1B5985430050AD6C /* GlowingRoomAPI.swift */; };
 		DC6BE88C1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE88A1B5985430050AD6C /* GlowingRoomAPI.swift */; };
 		DC6BE88E1B598E1A0050AD6C /* StateSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE88D1B598E1A0050AD6C /* StateSwitch.swift */; };
@@ -75,6 +78,8 @@
 /* Begin PBXFileReference section */
 		D92CFFA81B67C1EB0039D3D3 /* DeviceDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailController.swift; sourceTree = "<group>"; };
 		D92CFFAA1B67C8260039D3D3 /* DeviceSleepTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSleepTimerController.swift; sourceTree = "<group>"; };
+		D979994B1B680FB100EEFF36 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		D979994E1B680FF900EEFF36 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		DC6BE8501B5960FE0050AD6C /* GlowingRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlowingRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +94,6 @@
 		DC6BE8711B5960FE0050AD6C /* GlowingRemote WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "GlowingRemote WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6BE8761B5960FE0050AD6C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		DC6BE8781B5960FE0050AD6C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		DC6BE87A1B5960FE0050AD6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC6BE87C1B5960FE0050AD6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6BE88A1B5985430050AD6C /* GlowingRoomAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlowingRoomAPI.swift; sourceTree = "<group>"; };
 		DC6BE88D1B598E1A0050AD6C /* StateSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateSwitch.swift; sourceTree = "<group>"; };
@@ -167,7 +171,6 @@
 			children = (
 				DC6BE8761B5960FE0050AD6C /* InterfaceController.swift */,
 				DC6BE8781B5960FE0050AD6C /* ExtensionDelegate.swift */,
-				DC6BE87A1B5960FE0050AD6C /* Assets.xcassets */,
 				DC6BE87C1B5960FE0050AD6C /* Info.plist */,
 				DCD3CCAB1B603858003BA70F /* DeviceTableRowController.swift */,
 				D92CFFA81B67C1EB0039D3D3 /* DeviceDetailController.swift */,
@@ -181,6 +184,8 @@
 			children = (
 				DC6BE88A1B5985430050AD6C /* GlowingRoomAPI.swift */,
 				DCC071F01B602AB2001A2178 /* StateManager.swift */,
+				D979994B1B680FB100EEFF36 /* Device.swift */,
+				D979994E1B680FF900EEFF36 /* State.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -308,7 +313,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC6BE87B1B5960FE0050AD6C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +328,9 @@
 				DC6BE8541B5960FE0050AD6C /* AppDelegate.swift in Sources */,
 				DC6BE88B1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */,
 				DCC071F11B602AB2001A2178 /* StateManager.swift in Sources */,
+				D979994C1B680FB100EEFF36 /* Device.swift in Sources */,
 				DC6BE88E1B598E1A0050AD6C /* StateSwitch.swift in Sources */,
+				D979994F1B680FF900EEFF36 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,8 +343,10 @@
 				DC6BE8771B5960FE0050AD6C /* InterfaceController.swift in Sources */,
 				DC2EE6FA1B603E7900F73ECC /* StateManager.swift in Sources */,
 				D92CFFA91B67C1EB0039D3D3 /* DeviceDetailController.swift in Sources */,
+				D97999501B680FF900EEFF36 /* State.swift in Sources */,
 				DC6BE88C1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */,
 				D92CFFAB1B67C8260039D3D3 /* DeviceSleepTimerController.swift in Sources */,
+				D979994D1B680FB100EEFF36 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

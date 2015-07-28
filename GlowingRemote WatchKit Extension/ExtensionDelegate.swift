@@ -25,6 +25,26 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         if let newApiBaseUrl = applicationContext["apiBaseUrl"] as? String {
             stateManager.apiBaseUrl = NSURL(string: newApiBaseUrl)
         }
+        
+        if let newDevices = applicationContext["devices"] as? NSArray {
+            stateManager.devices = newDevices as! Array<Device>
+        }
+    }
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        if stateManager.devices != nil {
+            let id = message["id"] as? Int
+            let newPower = message["power"] as? Bool
+            
+            if(id != nil && newPower != nil) {
+                for device in stateManager.devices! {
+                    if(device.id == id!) {
+                        device.state.power = newPower!
+                        NSNotificationCenter.defaultCenter().postNotificationName("DevicesChanged", object: self)
+                    }
+                }
+            }
+        }
     }
 
     func applicationDidBecomeActive() {

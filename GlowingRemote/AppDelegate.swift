@@ -25,6 +25,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         
         return true
     }
+    
+    func sessionWatchStateDidChange(session: WCSession) {
+        if(session.paired && session.watchAppInstalled) {
+            if let apiBaseUrl = stateManager.apiBaseUrl {
+                let context = ["apiBaseUrl": apiBaseUrl.absoluteString]
+                do {
+                    try WCSession.defaultSession().updateApplicationContext(context)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        if stateManager.devices != nil {
+            let id = message["id"] as? Int
+            let newPower = message["power"] as? Bool
+            
+            if(id != nil && newPower != nil) {
+                for device in stateManager.devices! {
+                    if(device.id == id!) {
+                        device.state.power = newPower!
+                        NSNotificationCenter.defaultCenter().postNotificationName("DevicesChanged", object: self)
+                    }
+                }
+            }
+        }
+    }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

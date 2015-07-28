@@ -9,7 +9,6 @@
 import Foundation
 
 class StateManager {
-    var storedDevices : NSArray?
     let api : GlowingRoomAPI = GlowingRoomAPI()
     
     var apiBaseUrl: NSURL? {
@@ -27,34 +26,111 @@ class StateManager {
         }
     }
     
-    func devices(completionHandler: ((NSArray?) -> Void)!) {
-        if(storedDevices != nil) {
-            completionHandler(storedDevices)
-        } else if(apiBaseUrl != nil) {
-            GlowingRoomAPI.getAllDevices(apiBaseUrl!, completionHandler: { (devices, error) -> Void in
-                if(devices != nil) {
-                    self.storedDevices = devices
+    private var cachedDevices : Array<Device>?
+    var devices: Array<Device>? {
+        get {
+            if(cachedDevices != nil) {
+                return cachedDevices
+            } else {
+                if let data = NSUserDefaults.standardUserDefaults().objectForKey("devices") as? NSData {
+                    let result = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Array<Device>
+                    self.cachedDevices = result
+                    return result
+                } else {
+                    return nil
                 }
-                completionHandler(self.storedDevices)
+            }
+        }
+        set(newDevices) {
+            var data : NSData?
+            if(newDevices != nil) {
+                data = NSKeyedArchiver.archivedDataWithRootObject(newDevices!)
+            } else {
+                data = nil
+            }
+            NSUserDefaults.standardUserDefaults().setObject(data, forKey: "devices")
+        }
+    }
+    
+    func updateDevices(completionHandler: ((Bool) -> Void)!) {
+        if(apiBaseUrl != nil) {
+            GlowingRoomAPI.getAllDevices(apiBaseUrl!, completionHandler: { (devices) -> Void in
+                if(devices != nil) {
+                    var deserializedDevices = Array<Device>()
+                    for device in devices! {
+                        let dictState = device["state"] as! NSDictionary
+                        let state = State(power: dictState["power"] as! Bool)
+                        let id = device["id"] as! Int
+                        let name = device["name"] as! String
+                        let type = device["type"] as! String
+                        let device = Device(id: id, name: name, type: type, state: state)
+                        deserializedDevices.append(device)
+                    }
+                    self.devices = deserializedDevices
+                    completionHandler(true)
+                }
+                completionHandler(true)
             })
         } else {
-            completionHandler(nil)
+            completionHandler(false)
         }
     }
     
-    func switchOn(device: NSDictionary, completionHandler: ((NSArray!, NSError!) -> Void)!) {
+    func updateState(completionHandler: ((Bool) -> Void)!) {
         if(apiBaseUrl != nil) {
-            GlowingRoomAPI.switchOn(apiBaseUrl!, device: device, completionHandler: completionHandler)
+            GlowingRoomAPI.getAllDevices(apiBaseUrl!, completionHandler: { (devices) -> Void in
+                if(devices != nil) {
+                    var states = [Int:State]()
+                    for device in devices! {
+                        let dictState = device["state"] as! NSDictionary
+                        let state = State(power: dictState["power"] as! Bool)
+                        let id = device["id"] as! Int
+                        states[id] = state
+                    }
+                    
+                    if self.devices != nil {
+                        for device in self.devices! {
+                            if let stateForCurrentDevice = states[device.id] {
+                                device.state = stateForCurrentDevice
+                            }
+                        }
+                    }
+                    completionHandler(true)
+                }
+                completionHandler(true)
+            })
         } else {
-            completionHandler(nil, nil)
+            completionHandler(false)
         }
     }
     
-    func switchOff(device: NSDictionary, completionHandler: ((NSArray!, NSError!) -> Void)!) {
+    func switchOn(device: Device, completionHandler: ((Bool) -> Void)?) {
         if(apiBaseUrl != nil) {
-            GlowingRoomAPI.switchOff(apiBaseUrl!, device: device, completionHandler: completionHandler)
-        } else {
-            completionHandler(nil, nil)
+            GlowingRoomAPI.switchOn(apiBaseUrl!, device: device, completionHandler: {(success) -> Void in
+                if(success) {
+                    device.state.power = true
+                    if(completionHandler != nil) {
+                        completionHandler!(true)
+                    }
+                }
+            })
+        } else if(completionHandler != nil) {
+            completionHandler!(false)
+        }
+    }
+    
+    func switchOff(device: Device, completionHandler: ((Bool) -> Void)?) {
+        if(apiBaseUrl != nil) {
+            GlowingRoomAPI.switchOff(apiBaseUrl!, device: device, completionHandler: {(success) -> Void in
+                if(success) {
+                    device.state.power = false
+                    if(completionHandler != nil) {
+                        completionHandler!(true)
+                    }
+                }
+            })
+        } else if(completionHandler != nil) {
+            completionHandler!(false)
         }
     }
 }

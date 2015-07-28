@@ -10,6 +10,12 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="GlowingRemote_WatchKit_App" customModuleProvider="target">
                     <items>
+                        <label alignment="center" verticalAlignment="center" text="Keine Geräte verfügbar." textAlignment="center" numberOfLines="2" id="CUu-zh-vob">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
+                        <label alignment="center" verticalAlignment="center" text="Lade Geräte …" textAlignment="center" numberOfLines="2" id="Iwf-RD-gvZ">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </label>
                         <table alignment="left" id="wIL-Lf-EiX">
                             <items>
                                 <tableRow identifier="Device" id="mnh-H1-FXx" customClass="DeviceTableRowController" customModule="GlowingRemote_WatchKit_Extension">
@@ -47,7 +53,9 @@
                         </items>
                     </menu>
                     <connections>
+                        <outlet property="devicesNotAvailableLabel" destination="CUu-zh-vob" id="mkG-Sb-zd4"/>
                         <outlet property="devicesTable" destination="wIL-Lf-EiX" id="PC0-vL-MSt"/>
+                        <outlet property="loadingDevicesLabel" destination="Iwf-RD-gvZ" id="WON-0w-fiE"/>
                     </connections>
                 </controller>
             </objects>

@@ -9,80 +9,66 @@
 import Foundation
 
 class GlowingRoomAPI {
-    static func getAllDevices(baseUrl: NSURL, completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
+    static func getAllDevices(baseUrl: NSURL, completionHandler: ((NSArray?) -> Void)?) -> Void {
         let allDevicesUrl = baseUrl.URLByAppendingPathComponent("/devices")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(allDevicesUrl, completionHandler: {data, response, error -> Void in
             if error != nil {
-                return completionHandler(nil, error);
+                print(error)
+                if completionHandler != nil {
+                    completionHandler!(nil);
+                }
             }
             
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-                return completionHandler(json, nil)
+                
+                if(completionHandler != nil) {
+                    completionHandler!(json)
+                }
             } catch {
-                return completionHandler(nil, nil)
+                if completionHandler != nil {
+                    completionHandler!(nil)
+                }
             }
         })!
         task.resume()
     }
     
-    static func switchOn(baseUrl: NSURL, device : NSDictionary, completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
-        let id = device["id"] as! Int
-        let type = device["type"] as! String
-        var switchOnUrl : NSURL?
-        if type == "RGBStrip" {
-            switchOnUrl = baseUrl.URLByAppendingPathComponent("/lights/on/\(id)")
-        } else if type == "RCSwitch" {
-            switchOnUrl = baseUrl.URLByAppendingPathComponent("/switches/on/\(id)")
-        }
-        
-        if(switchOnUrl != nil) {
-            let session = NSURLSession.sharedSession()
-            let urlRequest = NSMutableURLRequest(URL: switchOnUrl!)
-            urlRequest.HTTPMethod = "POST"
-        
-            let task = session.dataTaskWithRequest(urlRequest, completionHandler: {data, response, error -> Void in
-                if error != nil {
-                    return completionHandler(nil, error);
-                }
-                
-                do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-                    return completionHandler(json, nil)
-                } catch {
-                    return completionHandler(nil, nil)
-                }
-            })!
-            task.resume()
-        }
+    static func switchOn(baseUrl: NSURL, device : Device, completionHandler: ((Bool) -> Void)?) -> Void {
+        switchAction(baseUrl, device: device, action: true, completionHandler: completionHandler)
     }
     
-    static func switchOff(baseUrl: NSURL, device : NSDictionary, completionHandler: ((NSArray!, NSError!) -> Void)!) -> Void {
-        let id = device["id"] as! Int
-        let type = device["type"] as! String
-        var switchOnUrl : NSURL?
+    static func switchOff(baseUrl: NSURL, device : Device, completionHandler: ((Bool) -> Void)?) -> Void {
+        switchAction(baseUrl, device: device, action: false, completionHandler: completionHandler)
+    }
+    
+    private static func switchAction(baseUrl: NSURL, device: Device, action: Bool, completionHandler: ((Bool) -> Void)?) -> Void {
+        let id = device.id
+        let type = device.type
+        var switchUrl : NSURL?
+        var actionString : String
+        if(action) {
+            actionString = "on"
+        } else {
+            actionString = "off"
+        }
         if type == "RGBStrip" {
-            switchOnUrl = baseUrl.URLByAppendingPathComponent("/lights/off/\(id)")
+            switchUrl = baseUrl.URLByAppendingPathComponent("/lights/\(actionString)/\(id)")
         } else if type == "RCSwitch" {
-            switchOnUrl = baseUrl.URLByAppendingPathComponent("/switches/off/\(id)")
+            switchUrl = baseUrl.URLByAppendingPathComponent("/switches/\(actionString)/\(id)")
         }
         
-        if(switchOnUrl != nil) {
+        if(switchUrl != nil) {
             let session = NSURLSession.sharedSession()
-            let urlRequest = NSMutableURLRequest(URL: switchOnUrl!)
+            let urlRequest = NSMutableURLRequest(URL: switchUrl!)
             urlRequest.HTTPMethod = "POST"
             
             let task = session.dataTaskWithRequest(urlRequest, completionHandler: {data, response, error -> Void in
-                if error != nil {
-                    return completionHandler(nil, error);
-                }
-                
-                do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-                    return completionHandler(json, nil)
-                } catch {
-                    return completionHandler(nil, nil)
+                if error != nil && completionHandler != nil {
+                    completionHandler!(false)
+                } else if(completionHandler != nil) {
+                    completionHandler!(true)
                 }
             })!
             task.resume()

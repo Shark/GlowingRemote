@@ -33,6 +33,7 @@ class SettingsController: UITableViewController, UITextFieldDelegate {
         if let textValue = textField.text {
             let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
             delegate.stateManager.apiBaseUrl = NSURL(string: textValue)
+            delegate.stateManager.devices = nil
             
             let context = ["apiBaseUrl": textValue]
             do {
