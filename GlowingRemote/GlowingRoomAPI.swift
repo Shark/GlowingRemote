@@ -72,6 +72,10 @@ class GlowingRoomAPI {
                 }
             })!
             task.resume()
+        } else {
+            if(completionHandler != nil) {
+                completionHandler!(false)
+            }
         }
     }
 }

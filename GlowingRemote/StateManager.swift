@@ -49,6 +49,7 @@ class StateManager {
                 data = nil
             }
             NSUserDefaults.standardUserDefaults().setObject(data, forKey: "devices")
+            cachedDevices = newDevices
         }
     }
     
@@ -68,8 +69,9 @@ class StateManager {
                     }
                     self.devices = deserializedDevices
                     completionHandler(true)
+                } else {
+                    completionHandler(false)
                 }
-                completionHandler(true)
             })
         } else {
             completionHandler(false)
@@ -96,8 +98,9 @@ class StateManager {
                         }
                     }
                     completionHandler(true)
+                } else {
+                    completionHandler(false)
                 }
-                completionHandler(true)
             })
         } else {
             completionHandler(false)
@@ -112,6 +115,8 @@ class StateManager {
                     if(completionHandler != nil) {
                         completionHandler!(true)
                     }
+                } else if(completionHandler != nil) {
+                    completionHandler!(false)
                 }
             })
         } else if(completionHandler != nil) {
@@ -127,6 +132,8 @@ class StateManager {
                     if(completionHandler != nil) {
                         completionHandler!(true)
                     }
+                } else if(completionHandler != nil) {
+                    completionHandler!(false)
                 }
             })
         } else if(completionHandler != nil) {

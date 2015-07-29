@@ -27,7 +27,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
         
         if let newDevices = applicationContext["devices"] as? NSArray {
-            stateManager.devices = newDevices as! Array<Device>
+            stateManager.devices = (newDevices as! Array<Device>)
         }
     }
     

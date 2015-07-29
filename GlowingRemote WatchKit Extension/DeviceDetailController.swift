@@ -10,14 +10,14 @@ import WatchKit
 
 class DeviceDetailController: WKInterfaceController {
     
-    var device : NSDictionary?
+    var device : Device?
     @IBOutlet weak var nameLabel : WKInterfaceLabel!
     @IBOutlet weak var brightnessSlider : WKInterfaceSlider!
     @IBOutlet weak var colorButton : WKInterfaceButton!
     @IBOutlet weak var sleepTimerButton : WKInterfaceButton!
     
     override func awakeWithContext(context: AnyObject?) {
-        if let device : NSDictionary = context as? NSDictionary {
+        if let device : Device? = context as? Device {
             self.device = device
         }
     }
@@ -27,17 +27,13 @@ class DeviceDetailController: WKInterfaceController {
         super.willActivate()
         
         if(device != nil) {
-            let devName : String? = device!["name"] as? String
-            if(devName != nil) {
-                nameLabel.setText(devName)
-            }
+            nameLabel.setText(device!.name)
             
-            let type : String? = device!["type"] as? String
-            if(type == "RGBStrip") {
+            if(device!.type == "RGBStrip") {
                 brightnessSlider.setHidden(false)
                 colorButton.setHidden(false)
                 sleepTimerButton.setHidden(false)
-            } else if(type == "RCSwitch") {
+            } else if(device!.type == "RCSwitch") {
                 brightnessSlider.setHidden(true)
                 colorButton.setHidden(true)
                 sleepTimerButton.setHidden(false)

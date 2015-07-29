@@ -52,7 +52,7 @@ class InterfaceController: WKInterfaceController {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "DevicesChanged", object: nil)
     }
     
-    override func table(_ table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
         let device = devices![rowIndex]
         pushControllerWithName("DeviceDetail", context: device)
     }
@@ -69,7 +69,7 @@ class InterfaceController: WKInterfaceController {
             
             for (index, device) in devices!.enumerate() {
                 let row = devicesTable.rowControllerAtIndex(index) as! DeviceTableRowController
-                row.device = device as! Device
+                row.device = device
                 row.stateManager = stateManager
                 
                 row.labelView.setText(device.name)
