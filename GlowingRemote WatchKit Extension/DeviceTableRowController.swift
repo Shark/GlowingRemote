@@ -21,21 +21,27 @@ class DeviceTableRowController: NSObject {
             if(value) {
                 stateManager!.switchOn(device!, completionHandler: {(success) -> Void in
                     if(success) {
+                        WKInterfaceDevice.currentDevice().playHaptic(.Success)
                         if(WCSession.defaultSession().reachable) {
                             WCSession.defaultSession().sendMessage(["id": self.device!.id, "power": self.device!.state.power], replyHandler: nil, errorHandler: {(error) -> Void in
                                 print(error)
                             })
                         }
+                    } else {
+                        WKInterfaceDevice.currentDevice().playHaptic(.Failure)
                     }
                 })
             } else {
                 stateManager!.switchOff(device!, completionHandler: {(success) -> Void in
                     if(success) {
+                        WKInterfaceDevice.currentDevice().playHaptic(.Success)
                         if(WCSession.defaultSession().reachable) {
                             WCSession.defaultSession().sendMessage(["id": self.device!.id, "power": self.device!.state.power], replyHandler: nil, errorHandler: {(error) -> Void in
                                 print(error)
                             })
                         }
+                    } else {
+                        WKInterfaceDevice.currentDevice().playHaptic(.Failure)
                     }
                 })
             }

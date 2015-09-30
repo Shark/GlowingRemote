@@ -30,8 +30,8 @@ class DeviceSleepTimerController: WKInterfaceController {
         
         let pickerItems : [WKPickerItem] = timerValues.map {
             let pickerItem = WKPickerItem()
-            pickerItem.title = $0.0
-            pickerItem.caption = $0.0
+            pickerItem.title = $0
+            pickerItem.caption = $0
             return pickerItem
         }
         picker.setItems(pickerItems)

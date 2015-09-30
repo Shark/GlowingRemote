@@ -31,7 +31,7 @@ class GlowingRoomAPI {
                     completionHandler!(nil)
                 }
             }
-        })!
+        })
         task.resume()
     }
     
@@ -70,7 +70,7 @@ class GlowingRoomAPI {
                 } else if(completionHandler != nil) {
                     completionHandler!(true)
                 }
-            })!
+            })
             task.resume()
         } else {
             if(completionHandler != nil) {
