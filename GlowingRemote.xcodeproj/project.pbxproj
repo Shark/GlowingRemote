@@ -13,6 +13,8 @@
 		D979994D1B680FB100EEFF36 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979994B1B680FB100EEFF36 /* Device.swift */; };
 		D979994F1B680FF900EEFF36 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979994E1B680FF900EEFF36 /* State.swift */; };
 		D97999501B680FF900EEFF36 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = D979994E1B680FF900EEFF36 /* State.swift */; };
+		D987A8A71BC6B504004A2C88 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D987A8A61BC6B504004A2C88 /* ComplicationController.swift */; settings = {ASSET_TAGS = (); }; };
+		D9E2DF241BC6C23A0062338A /* complication_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9E2DF231BC6C23A0062338A /* complication_icon.png */; settings = {ASSET_TAGS = (); }; };
 		DC2EE6FA1B603E7900F73ECC /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC071F01B602AB2001A2178 /* StateManager.swift */; };
 		DC6BE8541B5960FE0050AD6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */; };
 		DC6BE8561B5960FE0050AD6C /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */; };
@@ -80,6 +82,8 @@
 		D92CFFAA1B67C8260039D3D3 /* DeviceSleepTimerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSleepTimerController.swift; sourceTree = "<group>"; };
 		D979994B1B680FB100EEFF36 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		D979994E1B680FF900EEFF36 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		D987A8A61BC6B504004A2C88 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		D9E2DF231BC6C23A0062338A /* complication_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = complication_icon.png; sourceTree = "<group>"; };
 		DC6BE8501B5960FE0050AD6C /* GlowingRemote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlowingRemote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6BE8531B5960FE0050AD6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC6BE8551B5960FE0050AD6C /* DevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
@@ -159,8 +163,8 @@
 		DC6BE8661B5960FE0050AD6C /* GlowingRemote WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				DC6BE8671B5960FE0050AD6C /* Interface.storyboard */,
 				DC6BE86A1B5960FE0050AD6C /* Assets.xcassets */,
+				DC6BE8671B5960FE0050AD6C /* Interface.storyboard */,
 				DC6BE86C1B5960FE0050AD6C /* Info.plist */,
 			);
 			path = "GlowingRemote WatchKit App";
@@ -169,12 +173,14 @@
 		DC6BE8751B5960FE0050AD6C /* GlowingRemote WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D9E2DF231BC6C23A0062338A /* complication_icon.png */,
 				DC6BE8761B5960FE0050AD6C /* InterfaceController.swift */,
 				DC6BE8781B5960FE0050AD6C /* ExtensionDelegate.swift */,
 				DC6BE87C1B5960FE0050AD6C /* Info.plist */,
 				DCD3CCAB1B603858003BA70F /* DeviceTableRowController.swift */,
 				D92CFFA81B67C1EB0039D3D3 /* DeviceDetailController.swift */,
 				D92CFFAA1B67C8260039D3D3 /* DeviceSleepTimerController.swift */,
+				D987A8A61BC6B504004A2C88 /* ComplicationController.swift */,
 			);
 			path = "GlowingRemote WatchKit Extension";
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9E2DF241BC6C23A0062338A /* complication_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +352,7 @@
 				D92CFFA91B67C1EB0039D3D3 /* DeviceDetailController.swift in Sources */,
 				D97999501B680FF900EEFF36 /* State.swift in Sources */,
 				DC6BE88C1B5985430050AD6C /* GlowingRoomAPI.swift in Sources */,
+				D987A8A71BC6B504004A2C88 /* ComplicationController.swift in Sources */,
 				D92CFFAB1B67C8260039D3D3 /* DeviceSleepTimerController.swift in Sources */,
 				D979994D1B680FB100EEFF36 /* Device.swift in Sources */,
 			);
@@ -479,6 +487,7 @@
 		DC6BE8801B5960FE0050AD6C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "GlowingRemote WatchKit Extension/Info.plist";
@@ -496,6 +505,7 @@
 		DC6BE8811B5960FE0050AD6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "GlowingRemote WatchKit Extension/Info.plist";

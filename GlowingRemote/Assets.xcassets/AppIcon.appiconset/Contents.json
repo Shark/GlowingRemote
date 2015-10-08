@@ -26,26 +26,25 @@
       "scale" : "3x"
     },
     {
-      "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "Icon.png",
+      "size" : "57x57",
       "scale" : "1x"
     },
     {
+      "idiom" : "iphone",
       "size" : "57x57",
-      "idiom" : "iphone",
-      "filename" : "Icon@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Icon-60.png",
+      "filename" : "GR Icon 2 120.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "GR Icon 2 180.png",
       "scale" : "3x"
     },
     {
@@ -79,25 +78,25 @@
       "scale" : "2x"
     },
     {
-      "size" : "72x72",
       "idiom" : "ipad",
-      "filename" : "Icon-72.png",
+      "size" : "72x72",
       "scale" : "1x"
     },
     {
-      "size" : "72x72",
       "idiom" : "ipad",
-      "filename" : "Icon-72@2x.png",
+      "size" : "72x72",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "GR Icon 76.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "GR Icon 2 152.png",
       "scale" : "2x"
     }
   ],

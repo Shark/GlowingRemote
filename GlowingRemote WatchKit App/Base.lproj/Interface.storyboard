@@ -61,6 +61,21 @@
             </objects>
             <point key="canvasLocation" x="471" y="252"/>
         </scene>
+        <!--Interface Controller-->
+        <scene sceneID="gOK-YO-Gqt">
+            <objects>
+                <controller hidesWhenLoading="NO" id="CD9-Bi-pRV">
+                    <items>
+                        <button width="1" alignment="left" title="Button" id="W36-oR-Fb8">
+                            <connections>
+                                <segue destination="Wjc-A5-ccv" kind="push" id="9Vd-TQ-I8C"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="526" y="499"/>
+        </scene>
         <!--Details-->
         <scene sceneID="4M2-CM-hgO">
             <objects>
@@ -132,4 +147,7 @@
             <point key="canvasLocation" x="839" y="568"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="9Vd-TQ-I8C"/>
+    </inferredMetricsTieBreakers>
 </document>
