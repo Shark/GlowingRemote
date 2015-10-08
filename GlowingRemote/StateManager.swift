@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WatchConnectivity
 
 class StateManager {
     let api : GlowingRoomAPI = GlowingRoomAPI()
@@ -23,6 +24,15 @@ class StateManager {
             let newBaseUrlString : String = newBaseUrl!.absoluteString
             NSUserDefaults.standardUserDefaults().setValue(newBaseUrlString, forKey: "apiBaseUrl")
             NSNotificationCenter.defaultCenter().postNotificationName("ApiBaseUrlChanged", object: self)
+            
+            if newBaseUrl != nil {
+                let context = ["apiBaseUrl": newBaseUrl!]
+                do {
+                    try WCSession.defaultSession().updateApplicationContext(context)
+                } catch {
+                    print(error)
+                }
+            }
         }
     }
     

@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 for device in stateManager.devices! {
                     if(device.id == id!) {
                         device.state.power = newPower!
-                        NSNotificationCenter.defaultCenter().postNotificationName("DevicesChanged", object: self)
+                        NSNotificationCenter.defaultCenter().postNotificationName("StateChanged", object: self)
                     }
                 }
             }

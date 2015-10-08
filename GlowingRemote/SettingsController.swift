@@ -9,7 +9,13 @@
 import UIKit
 import WatchConnectivity
 
-class SettingsController: UITableViewController, UITextFieldDelegate {
+class SettingsController: UITableViewController {
+    weak var apiBaseUrlTextField : UITextField?
+    
+    override func viewWillDisappear(animated: Bool) {
+        saveValues()
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -21,6 +27,7 @@ class SettingsController: UITableViewController, UITextFieldDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("GRBaseURLCell")!
         let baseUrlField = cell.viewWithTag(1) as! UITextField
+        apiBaseUrlTextField = baseUrlField
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let baseUrl = delegate.stateManager.apiBaseUrl {
             baseUrlField.text = baseUrl.absoluteString
@@ -29,21 +36,11 @@ class SettingsController: UITableViewController, UITextFieldDelegate {
         return cell
     }
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        if let textValue = textField.text {
+    private func saveValues() {
+        if let textValue = apiBaseUrlTextField?.text {
             let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
             delegate.stateManager.apiBaseUrl = NSURL(string: textValue)
             delegate.stateManager.devices = nil
-            
-            let context = ["apiBaseUrl": textValue]
-            do {
-                try WCSession.defaultSession().updateApplicationContext(context)
-            } catch {
-                print(error)
-            }
         }
-        
-        textField.resignFirstResponder()
-        return true
     }
 }

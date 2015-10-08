@@ -13,24 +13,19 @@ class GlowingRoomAPI {
         let allDevicesUrl = baseUrl.URLByAppendingPathComponent("/devices")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(allDevicesUrl, completionHandler: {data, response, error -> Void in
-            if error != nil {
-                print(error)
-                if completionHandler != nil {
-                    completionHandler!(nil);
-                }
+            guard error == nil && data != nil else {
+                completionHandler?(nil);
+                return
             }
             
-            do {
-                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-                
-                if(completionHandler != nil) {
-                    completionHandler!(json)
-                }
-            } catch {
-                if completionHandler != nil {
-                    completionHandler!(nil)
-                }
+            var devices : NSArray?
+            if let json = try? NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) {
+                devices = json as? NSArray
+            } else {
+                devices = nil
             }
+            
+            completionHandler?(devices)
         })
         task.resume()
     }

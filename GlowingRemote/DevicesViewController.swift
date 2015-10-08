@@ -18,38 +18,24 @@ class DevicesViewController: UITableViewController {
         
         let delegate = (UIApplication.sharedApplication().delegate) as! AppDelegate
         stateManager = delegate.stateManager
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateDevices", name: "ApiBaseUrlChanged", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateStateLocal", name: "DevicesChanged", object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "StateChanged", object: nil)
+        
         self.devices = stateManager?.devices
         
-        if(self.devices == nil || self.devices?.count == 0) {
+        if(self.devices == nil) {
             updateDevices()
-        } else {
-            updateState()
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ApiBaseUrlChanged", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "DevicesChanged", object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: "refresh", object: nil)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        var numSections = 0
-        
-        let devPerSect = devicesPerSection(devices)
-        if(devPerSect["RCSwitch"]!.count > 0) {
-            numSections++
-        }
-        if(devPerSect["RGBStrip"]!.count > 0) {
-            numSections++
-        }
-        
-        return numSections
+        return 2;
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -151,7 +137,7 @@ class DevicesViewController: UITableViewController {
         })
     }
     
-    func updateState() {
+    func updateStateRemotely() {
         stateManager!.updateState({ (success) -> Void in
             if(success) {
                 self.devices = self.stateManager!.devices
@@ -163,7 +149,7 @@ class DevicesViewController: UITableViewController {
         })
     }
     
-    func updateStateLocal() {
+    func refresh() {
         self.devices = self.stateManager!.devices
         dispatch_async(dispatch_get_main_queue()) {
             self.tableView.reloadData()
@@ -186,8 +172,9 @@ class DevicesViewController: UITableViewController {
     private func showDevicesNotAvailableAlert() {
         dispatch_async(dispatch_get_main_queue()) {
             let baseUrl = self.stateManager?.apiBaseUrl?.absoluteString
-            let alertView = UIAlertView(title: "Fehler", message: "Konnte Geräte nicht von \(baseUrl) laden.", delegate: self, cancelButtonTitle: "Ok")
-            alertView.show()
+            let alertController = UIAlertController(title: "Fehler", message: "Konnte Geräte nicht von \(baseUrl) laden.", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .Default) { (action) in })
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
 }
